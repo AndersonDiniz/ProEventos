@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ProEventos.API.Data;
 using ProEventos.API.Models;
 
 namespace ProEventos.API.Controllers
@@ -12,45 +13,26 @@ namespace ProEventos.API.Controllers
     [Route("api/[controller]")]
     public class EventoController : ControllerBase
     {
-       
-        public IEnumerable<Evento> _evento = new Evento[]
+
+        private readonly DataContext _context;
+
+        public EventoController(DataContext context)
         {
-                new Evento()
-                {
-                    EventoId = 1,
-                    Tema = "ee",
-                    Local = "dsd",
-                    Lote = "asdasd",
-                    QtdPessoas = 2,
-                    DataEvento = DateTime.Now.AddHours(2).ToString("dd/MM/yyyy"),
-                    ImagemUrl = "foto.png"
-                },
-                new Evento()
-                {
-                    EventoId = 2,
-                    Tema = "ee",
-                    Local = "dsd",
-                    Lote = "asdasd",
-                    QtdPessoas = 2,
-                    DataEvento = DateTime.Now.AddHours(2).ToString("dd/MM/yyyy"),
-                    ImagemUrl = "foto.png"
-                }
-            };
+            _context = context;
 
-            public EventoController(){}
-        
+        }
 
-            [HttpGet("{id}")]
-            public IEnumerable<Evento> GetById(int id)
-            {
-                return _evento.Where(e => e.EventoId == id);           
-            }
+        [HttpGet]
+        public IEnumerable<Evento> Get(int id)
+        {
+            return _context.Eventos;
 
-            [HttpGet]
-            public IEnumerable<Evento> Get(int id)
-            {
-                return _evento;
-                
-            }
+        }
+
+        [HttpGet("{id}")]
+        public Evento GetById(int id)
+        {
+            return _context.Eventos.FirstOrDefault(e => e.EventoId == id);
+        }
     }
 }
