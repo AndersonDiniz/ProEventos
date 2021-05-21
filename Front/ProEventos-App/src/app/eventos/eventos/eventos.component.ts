@@ -3,7 +3,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Evento } from 'src/app/models/Evento';
-import { Titulo } from 'src/app/models/Titulo';
+
 import { EventoService } from 'src/app/services/evento.service';
 
 @Component({
@@ -14,7 +14,6 @@ import { EventoService } from 'src/app/services/evento.service';
 })
 export class EventosComponent implements OnInit {
 
-  public titulo: Titulo | undefined;
   modalRef!: BsModalRef;
   public eventos: Evento[] = [];
   public eventosFiltrados: Evento[] = [];

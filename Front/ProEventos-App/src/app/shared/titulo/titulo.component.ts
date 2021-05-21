@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class TituloComponent implements OnInit {
 
 
-  public nome = 'TESTE';
   constructor() { }
 
   ngOnInit() {
