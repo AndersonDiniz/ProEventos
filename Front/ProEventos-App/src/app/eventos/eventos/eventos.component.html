@@ -10,13 +10,15 @@
     [(ngModel)]="filtroLista"
     >
   </div>
-
 </div>
+
+<!-- FILTRO LISTA -->
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
-      <th><button class="btn btn-outline-light btn-sm" type="button"
+      <th><button type="button" class= "btn btn-outline-light btn-sm"
         (click)="alterarImagem()">
+        <i class="{{!mostrarImagem ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
         {{mostrarImagem ? 'mostrar' : 'esconder'}}</button></th>
       <th>#</th>
       <th>Tema</th>
@@ -37,15 +39,20 @@
           [style.margin.px]="margemImagem"
         >
       </th>
-      <th>{{evento.eventoId}}</th>
+      <th>{{evento.id}}</th>
       <th>{{evento.tema}}</th>
       <th>{{evento.local}}</th>
-      <th>{{evento.dataEvento}}</th>
+      <th>{{evento.dataEvento | DateFormat}}</th>
       <th>{{evento.qtdPessoas}}</th>
-      <th>{{evento.lote}}</th>
+      <th>{{evento.lotes[0].nome}}</th>
       <th>
-        <button type="button" class="btn btn-primary btn-sm mr-2">Editar</button>
-        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+        <button type="button" class="btn btn-primary btn-sm mr-2 " tooltip="Editar">
+          <i class="fa fa-edit"></i>
+          Editar
+        </button>
+        <button type="button" class="btn btn-danger btn-sm" tooltip="Excluir" (click)="openModal(template)">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+          Excluir</button>
       </th>
     </tr>
   </tbody>
@@ -57,3 +64,12 @@
     </tr>
   </tfoot>
 </table>
+
+
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Você confirma?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()" >Sim</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >Não</button>
+  </div>
+</ng-template>
