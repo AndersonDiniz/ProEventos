@@ -88,8 +88,6 @@ export class EventosComponent implements OnInit {
   decline(): void {
     this.modalRef.hide();
   }
-
-
 }
 function next(next: any, arg1: (eventos: Evento[]) => void, arg2: (error: any) => void) {
   throw new Error('Function not implemented.');

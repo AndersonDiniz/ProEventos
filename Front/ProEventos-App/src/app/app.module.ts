@@ -12,9 +12,12 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EventosComponent } from './eventos/eventos/eventos.component';
-import { PalestrantesComponent } from './palestrantes/palestrantes/palestrantes.component';
-import { NavComponent } from './nav/nav.component';
+import { EventosComponent } from './componentes/eventos/eventos.component';
+import { PalestrantesComponent } from './componentes/palestrantes/palestrantes.component';
+import { NavComponent } from './shared/nav/nav.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { DashboardComponent } from './componentes/dashboard/dashboard.component';
+import { ContatosComponent } from './componentes/contatos/contatos.component';
 
 import { EventoService } from './services/evento.service';
 
@@ -29,7 +32,10 @@ import { TituloComponent } from './shared/titulo/titulo.component';
     PalestrantesComponent,
     NavComponent,
     DateTimeFormatPipe,
-    TituloComponent
+    TituloComponent,
+    PerfilComponent,
+    DashboardComponent,
+    ContatosComponent
    ],
   imports: [
     BrowserModule,
@@ -44,7 +50,7 @@ import { TituloComponent } from './shared/titulo/titulo.component';
     ModalModule.forRoot(),
     ToastrModule.forRoot(
       {
-        timeOut: 5000,
+        timeOut: 3000,
         positionClass: 'toast-top-right',
         preventDuplicates: true,
         progressBar : true,
