@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
 import { EventosComponent } from './componentes/eventos/eventos.component';
 import { PalestrantesComponent } from './componentes/palestrantes/palestrantes.component';
 import { NavComponent } from './shared/nav/nav.component';
-import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { PerfilComponent } from './componentes/user/perfil/perfil.component';
 import { DashboardComponent } from './componentes/dashboard/dashboard.component';
 import { ContatosComponent } from './componentes/contatos/contatos.component';
 
@@ -24,6 +24,11 @@ import { EventoService } from './services/evento.service';
 import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { TituloComponent } from './shared/titulo/titulo.component';
+import { EventoDetalheComponent } from './componentes/evento-detalhe/evento-detalhe.component';
+import { EventoListaComponent } from './componentes/evento-lista/evento-lista.component';
+import { UserComponent } from './componentes/user/user.component';
+import { LoginComponent } from './componentes/user/login/login.component';
+import { RegistrationComponent } from './componentes/user/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,12 @@ import { TituloComponent } from './shared/titulo/titulo.component';
     TituloComponent,
     PerfilComponent,
     DashboardComponent,
-    ContatosComponent
+    ContatosComponent,
+    EventoDetalheComponent,
+    EventoListaComponent,
+    UserComponent,
+    LoginComponent,
+    RegistrationComponent,
    ],
   imports: [
     BrowserModule,
