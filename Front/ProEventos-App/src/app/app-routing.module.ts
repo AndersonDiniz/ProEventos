@@ -33,8 +33,8 @@ const routes: Routes = [
   { path: 'user/perfil', component: PerfilComponent},
   { path: 'contatos', component: ContatosComponent},
   { path: 'dashboard', component: DashboardComponent},
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-  { path: '**', redirectTo: 'dashboard', pathMatch: 'full'}
+  { path: '', redirectTo: 'user/login', pathMatch: 'full'},
+  { path: '**', redirectTo: 'user/login', pathMatch: 'full'}
 ];
 
 @NgModule({

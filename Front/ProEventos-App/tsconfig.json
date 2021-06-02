@@ -19,7 +19,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+
+    // CONFIGURAÇÃO PARA ENCURTAR OS CAMINHOS NOS IMPORTS
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@enviroments/*": ["src/enviroments/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
